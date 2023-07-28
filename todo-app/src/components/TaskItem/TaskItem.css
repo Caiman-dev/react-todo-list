@@ -1,0 +1,24 @@
+.task-item {
+	min-width: 275px;
+	padding: 10px;
+	margin-bottom: 5px;
+	cursor: pointer;
+}
+
+.task-item:hover {
+	opacity: 0.8;
+}
+
+.task-item__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.task-item-button {
+	opacity: 0.8;
+}
+
+.task-item-button:hover {
+	opacity: 1;
+}
