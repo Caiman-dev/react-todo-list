@@ -1,18 +1,19 @@
 import React from "react";
+import { Box, Typography } from '@mui/material';
 import "./TaskList.css";
+import type { ITaskModel } from '../../../index';
 
-export const TaskList = () => {
+interface TaskListProps {
+	taskList: ITaskModel[];
+}
+
+export const TaskList: React.FC<TaskListProps> = ({ taskList }) => {
 	return (
-		<div className="task-list">
-			<p>
-				Task1
-			</p>
-			<p>
-				Task2
-			</p>
-			<p>
-				Task3
-			</p>
-		</div>
+		<Box className="task-list">
+			<Typography variant="h5" sx={{ fontWeight: 700 }}>СПИСОК ЗАДАЧ</Typography>
+			<Box>
+				{taskList.map((_task) => { return <p>{_task.description}</p> })}
+			</Box>
+		</Box>
 	);
 };

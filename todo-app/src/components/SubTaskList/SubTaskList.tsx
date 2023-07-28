@@ -1,9 +1,11 @@
 import React from "react";
+import { Box, Typography } from '@mui/material';
 import "./SubTaskList.css";
 
 export const SubTaskList = () => {
 	return (
-		<div className="subtask-list">
+		<Box className="subtask-list">
+			<Typography variant="h5" sx={{ fontWeight: 700 }}>SubTask name</Typography>
 			<p>
 				SubTask1
 			</p>
@@ -13,6 +15,6 @@ export const SubTaskList = () => {
 			<p>
 				SubTask3
 			</p>
-		</div>
+		</Box>
 	);
 };
