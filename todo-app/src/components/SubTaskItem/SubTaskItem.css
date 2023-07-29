@@ -1,0 +1,30 @@
+.subtask-item {
+	min-width: 430px;
+	padding: 10px;
+	margin-bottom: 5px;
+	cursor: pointer;
+}
+
+.subtask-item:hover {
+	opacity: 0.6;
+}
+
+.subtask-item__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.subtask-item__content {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.subtask-item-button {
+	opacity: 0.6;
+}
+
+.subtask-item-button:hover {
+	opacity: 1;
+}
