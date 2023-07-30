@@ -21,6 +21,10 @@
 	justify-content: flex-start;
 }
 
+.subtask-item__buttons {
+	display: flex;
+}
+
 .subtask-item-button {
 	opacity: 0.6;
 }

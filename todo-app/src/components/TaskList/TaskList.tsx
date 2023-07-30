@@ -1,8 +1,15 @@
 import React from "react";
 import { Box, Typography } from '@mui/material';
 import "./TaskList.css";
-import type { ITaskModel } from '../../../index';
 import { TaskItem } from "../TaskItem/TaskItem";
+import { AddModal } from "../AddModal/AddModal";
+import type { ITaskModel } from '../../../index';
+
+const typography = {
+	fontWeight: 700,
+	marginBottom: '20px',
+	color: 'white',
+};
 
 interface TaskListProps {
 	taskList: ITaskModel[] | null;
@@ -12,7 +19,8 @@ interface TaskListProps {
 export const TaskList: React.FC<TaskListProps> = ({ onOpenTask, taskList }) => {
 	return (
 		<Box className="task-list">
-			<Typography variant="h5" sx={{ fontWeight: 700, marginBottom: '20px', color: 'white' }} >СПИСОК ЗАДАЧ</Typography>
+			<Typography variant="h4" sx={typography} >СПИСОК ЗАДАЧ</Typography>
+			<AddModal></AddModal>
 			<Box>
 				{taskList?.length ? taskList.map((_task) => {
 					return <TaskItem key={_task.id} task={_task} onOpenTask={onOpenTask}></TaskItem>

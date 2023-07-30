@@ -46,9 +46,9 @@ const App = () => {
         taskList={taskList}
         onOpenTask={onOpenTask}></TaskList>
       <SubTaskList
+        subtaskList={subTaskList}
         taskParentId={parentId}
-        taskParentDescription={parentDescription}
-        subtaskList={subTaskList}></SubTaskList>
+        taskParentDescription={parentDescription}></SubTaskList>
     </Box >
   );
 };
