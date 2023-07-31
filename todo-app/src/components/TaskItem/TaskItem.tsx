@@ -3,7 +3,7 @@ import { Box, Stack, Typography, IconButton, Paper } from '@mui/material';
 import { Delete as DeleteButton } from '@mui/icons-material';
 import "./TaskItem.css";
 import { EditModal } from "../EditModal/EditModal";
-import type { ITaskModel } from '../../../index';
+import { ITaskModel } from "./type";
 
 interface TaskItemProps {
 	task: ITaskModel;

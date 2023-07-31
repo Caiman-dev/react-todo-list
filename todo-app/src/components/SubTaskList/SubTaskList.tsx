@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material';
 import "./SubTaskList.css";
 import { SubTaskItem } from "../SubTaskItem/SubTaskItem";
 import { AddModal } from "../AddModal/AddModal";
-import type { ITaskModel } from '../../../index';
+import { ITaskModel } from "../TaskItem/type";
 
 const typography = {
 	fontWeight: 700,

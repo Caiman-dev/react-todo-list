@@ -2,8 +2,7 @@ import React from "react";
 import { Box, Button, TextField, Modal, Stack, IconButton, Typography } from '@mui/material';
 import { Edit as EditButton } from '@mui/icons-material';
 import "./EditModal.css";
-import { ITaskModel } from "../../..";
-// import type { ITaskModel } from '../../../index';
+import { ITaskModel } from "../TaskItem/type";
 
 const modal = {
 	position: 'absolute',

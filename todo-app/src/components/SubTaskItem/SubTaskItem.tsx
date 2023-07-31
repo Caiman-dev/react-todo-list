@@ -2,8 +2,8 @@ import React from "react";
 import { Box, Stack, Typography, IconButton, Paper, Checkbox } from '@mui/material';
 import { Delete as DeleteButton } from '@mui/icons-material';
 import "./SubTaskItem.css";
-import type { ITaskModel } from '../../../index';
 import { EditModal } from "../EditModal/EditModal";
+import { ITaskModel } from "../TaskItem/type";
 
 interface TaskItemProps {
 	subtask: ITaskModel;
