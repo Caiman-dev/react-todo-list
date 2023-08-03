@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import { TaskList } from "../TaskList";
 import { SubTaskList } from "../SubTaskList";
 import { ITaskModel } from "../TaskItem/type";
-import api from "../../api/tasks";
+import api, { arr } from "../../api/tasks";
 import "./Todo.css";
 
 // const DEFAULT_TASKS: ITaskModel[] | null = [
@@ -39,6 +39,7 @@ export const Todo = () => {
 	};
 
 	React.useEffect(() => {
+		arr();
 		getApiTasks();
 	}, []);
 
