@@ -42,9 +42,16 @@ export const Todo = () => {
 	}
 
 	const onAddTask = (task: ITaskModel) => {
-		addTaskToServer(task);
-		if (tasks) {
-			setTasks([...tasks, task]);
+		//запретить повторяющиеся задачи
+		const newTask = tasks?.filter((item) => item.description == task.description && (item.parentId === null && task.parentId === null || item.parentId == task.parentId))
+		if (newTask && newTask?.length > 0) {
+			alert('Невозможно добавить две одинаковые задачи!');
+		}
+		else {
+			addTaskToServer(task);
+			if (tasks) {
+				setTasks([...tasks, task]);
+			}
 		}
 	}
 
