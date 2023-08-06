@@ -1,18 +1,16 @@
 .task-item {
-	min-width: 275px;
+	height: 37px;
+	min-width: 280px;
 	padding: 10px;
 	margin-bottom: 5px;
 	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .task-item:hover {
 	opacity: 0.8;
-}
-
-.task-item__inner {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
 }
 
 .task-item-button {
@@ -21,4 +19,8 @@
 
 .task-item-button:hover {
 	opacity: 1;
+}
+
+.hidden {
+	display: none !important;
 }

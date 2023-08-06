@@ -5,6 +5,10 @@
 	cursor: pointer;
 }
 
+.subtask-item--completed {
+	background-color: #8c8c8c80 !important;
+}
+
 .subtask-item:hover {
 	opacity: 0.6;
 }
