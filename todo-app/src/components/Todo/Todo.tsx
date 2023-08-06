@@ -4,6 +4,7 @@ import { TaskList } from "../TaskList";
 import { SubTaskList } from "../SubTaskList";
 import { ITaskModel } from "../TaskItem/type";
 import { getTasksFromServer, addTaskToServer, deleteTaskFromServer, updateTaskOnServer } from "../../api/tasks";
+import ClipLoader from "react-spinners/ClipLoader";
 import "./Todo.css";
 
 export const Todo = () => {
@@ -12,10 +13,16 @@ export const Todo = () => {
 	const [subTaskList, setSubTaskList] = React.useState<ITaskModel[] | null>(null);
 	const [parentId, setParentId] = React.useState<ITaskModel['id'] | null>(null);
 	const [parentDescription, setParentDescription] = React.useState<ITaskModel['description'] | null>(null);
+	const [loading, setLoading] = React.useState(true);
+	const [color, setColor] = React.useState("#fff");
 
 	const getTasks = async () => {
 		let result = await getTasksFromServer();
 		setTasks(result);
+
+		//loader
+		setColor("#34bcda");
+		setTimeout(() => { setLoading(false); }, 100)
 	}
 
 	React.useEffect(() => {
@@ -63,21 +70,31 @@ export const Todo = () => {
 		setTasks(newTasks);
 	};
 
-	return (
-		<Box className="app">
-			<TaskList
-				taskList={taskList}
-				onOpenTask={onOpenTask}
-				onAddTask={onAddTask}
-				onEditTask={onEditTask}
-				onDeleteTask={onDeleteTask}></TaskList>
-			<SubTaskList
-				subtaskList={subTaskList}
-				taskParentId={parentId}
-				taskParentDescription={parentDescription}
-				onAddTask={onAddTask}
-				onEditTask={onEditTask}
-				onDeleteTask={onDeleteTask}></SubTaskList>
-		</Box >
+	return (<Box>
+		{loading ?
+			<ClipLoader
+				color={color}
+				loading={loading}
+				size={100}
+				aria-label="Loading Spinner"
+				data-testid="loader"
+			/> :
+			<Box className="app">
+				<TaskList
+					taskList={taskList}
+					onOpenTask={onOpenTask}
+					onAddTask={onAddTask}
+					onEditTask={onEditTask}
+					onDeleteTask={onDeleteTask}></TaskList>
+				<SubTaskList
+					subtaskList={subTaskList}
+					taskParentId={parentId}
+					taskParentDescription={parentDescription}
+					onAddTask={onAddTask}
+					onEditTask={onEditTask}
+					onDeleteTask={onDeleteTask}></SubTaskList>
+			</Box >
+		}
+	</Box>
 	);
 };
