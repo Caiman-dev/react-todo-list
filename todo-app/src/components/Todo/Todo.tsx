@@ -14,15 +14,11 @@ export const Todo = () => {
 	const [parentId, setParentId] = React.useState<ITaskModel['id'] | null>(null);
 	const [parentDescription, setParentDescription] = React.useState<ITaskModel['description'] | null>(null);
 	const [loading, setLoading] = React.useState(true);
-	const [color, setColor] = React.useState("#fff");
 
 	const getTasks = async () => {
 		let result = await getTasksFromServer();
 		setTasks(result);
-
-		//loader
-		setColor("#34bcda");
-		setTimeout(() => { setLoading(false); }, 100)
+		setTimeout(() => { setLoading(false); }, 1000) //loader
 	}
 
 	React.useEffect(() => {
@@ -46,6 +42,9 @@ export const Todo = () => {
 		const newTask = tasks?.filter((item) => item.description == task.description && (item.parentId === null && task.parentId === null || item.parentId == task.parentId))
 		if (newTask && newTask?.length > 0) {
 			alert('Невозможно добавить две одинаковые задачи!');
+		}
+		else if (!task.description.length) {
+			alert('Невозможно добавить пустую задачу!');
 		}
 		else {
 			addTaskToServer(task);
@@ -80,7 +79,7 @@ export const Todo = () => {
 	return (<Box>
 		{loading ?
 			<ClipLoader
-				color={color}
+				color={'#34bcda'}
 				loading={loading}
 				size={100}
 				aria-label="Loading Spinner"

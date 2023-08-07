@@ -22,15 +22,12 @@ interface TaskListProps {
 
 export const SubTaskList: React.FC<TaskListProps> = ({ subtaskList, taskParentId, taskParentDescription, onAddTask, onEditTask, onDeleteTask }) => {
 	const [loading, setLoading] = React.useState(false);
-	const [color, setColor] = React.useState("#fff");
 
 	//loader
 	React.useEffect(() => {
-		setColor("#34bcda");
-		console.log(taskParentDescription);
 		if (taskParentId !== null) {
 			setLoading(true);
-			setTimeout(() => { setLoading(false); }, 100)
+			setTimeout(() => { setLoading(false); }, 400)
 		}
 	}, [taskParentId]);
 
@@ -38,7 +35,7 @@ export const SubTaskList: React.FC<TaskListProps> = ({ subtaskList, taskParentId
 		<Box className="subtask-list">
 			{loading ?
 				<ClipLoader
-					color={color}
+					color={'#34bcda'}
 					loading={loading}
 					size={70}
 					aria-label="Loading Spinner"

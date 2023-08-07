@@ -14,6 +14,8 @@ interface TaskItemProps {
 }
 
 export const TaskItem: React.FC<TaskItemProps> = ({ task, onOpenTask, onAddTask, onDeleteTask, onEditTask }) => {
+
+
 	const handleDeleteButtonClick = (event: { stopPropagation: () => void; }, id: ITaskModel['id']) => {
 		event.stopPropagation();
 		onDeleteTask(id);
@@ -34,7 +36,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({ task, onOpenTask, onAddTask,
 
 	return (
 		<Paper id={task.id} className="task-item" onClick={() => onOpenTask(task.id, task.description)}>
-			<Typography variant='h6' component='h6'>{task.description}</Typography>
+			<Typography variant='h6' component='h6' sx={{ color: task.color }}>{task.description}</Typography>
 			<Box id={'box' + task.id} display='flex' justifyContent='flex-end' className="hidden">
 				<AddEditModal id={task.id} parentId={null} description={task.description} isCompleted={task.isCompleted} onAddTask={onAddTask} onEditTask={onEditTask}></AddEditModal>
 				<IconButton onClick={(e) => handleDeleteButtonClick(e, task.id)} color='error' aria-label='delete' className="task-item-button">

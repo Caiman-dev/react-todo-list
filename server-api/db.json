@@ -4,91 +4,106 @@
       "id": "1",
       "parentId": null,
       "description": "Помыть посуду",
-      "isCompleted": false
+      "isCompleted": false,
+      "color": "#000000"
     },
     {
       "id": "2",
       "parentId": null,
       "description": "Купить яблоки",
-      "isCompleted": false
+      "isCompleted": false,
+      "color": "#000000"
     },
     {
       "id": "3",
       "parentId": null,
       "description": "Поменять фильтры",
-      "isCompleted": false
+      "isCompleted": false,
+      "color": "#000000"
     },
     {
       "id": "4",
       "parentId": null,
       "description": "Помыть яблоки",
-      "isCompleted": false
+      "isCompleted": false,
+      "color": "#000000"
     },
     {
       "id": "5",
       "parentId": null,
       "description": "Сварить варенье",
-      "isCompleted": false
+      "isCompleted": false,
+      "color": "#000000"
     },
     {
       "id": "6",
       "parentId": "1",
       "description": "subtask 1",
-      "isCompleted": false
+      "isCompleted": false,
+      "color": "#000000"
     },
     {
       "id": "7",
       "parentId": "1",
       "description": "subtask 2",
-      "isCompleted": false
+      "isCompleted": false,
+      "color": "#000000"
     },
     {
       "id": "8",
       "parentId": "2",
       "description": "subtask 3",
-      "isCompleted": false
+      "isCompleted": false,
+      "color": "#000000"
     },
     {
       "id": "9",
       "parentId": "2",
       "description": "subtask 4",
-      "isCompleted": false
+      "isCompleted": false,
+      "color": "#000000"
     },
     {
       "id": "10",
       "parentId": "3",
       "description": "subtask 5",
-      "isCompleted": false
+      "isCompleted": false,
+      "color": "#000000"
     },
     {
       "id": "11",
       "parentId": "3",
       "description": "subtask 6",
-      "isCompleted": false
+      "isCompleted": false,
+      "color": "#000000"
     },
     {
       "id": "12",
       "parentId": "4",
       "description": "subtask 7",
-      "isCompleted": false
+      "isCompleted": false,
+      "color": "#000000"
     },
     {
       "id": "13",
       "parentId": "4",
       "description": "subtask 8",
-      "isCompleted": false
+      "isCompleted": false,
+      "color": "#000000"
     },
     {
       "id": "14",
       "parentId": "5",
       "description": "subtask 9",
-      "isCompleted": false
+      "isCompleted": false,
+      "color": "#000000"
     },
     {
       "id": "15",
       "parentId": "5",
       "description": "subtask 10",
-      "isCompleted": false
+      "isCompleted": false,
+      "color": "#000000"
     }
   ]
 }

@@ -4,6 +4,7 @@ import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import { Edit as EditButton } from '@mui/icons-material';
 import { ITaskModel } from "../TaskItem/type";
 import { v4 as uuidv4 } from 'uuid';
+import { ColorPicker } from '../ColorPicker/ColorPicker'
 import "./AddEditModal.css";
 
 const modal = {
@@ -34,16 +35,23 @@ interface AddEditModalProps {
 
 export const AddEditModal: React.FC<AddEditModalProps> = ({ id, parentId, description, isCompleted, onAddTask, onEditTask }) => {
 	const [open, setOpen] = React.useState(false);
-	const [descr, setDescr] = React.useState("");
+	const [newDescription, setNewDescription] = React.useState(description);
+	const [newColor, setNewColor] = React.useState('#000000');
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
 
 	const addTask = () => {
+		let descr = document.getElementById('outlined-basic');
+		if (descr !== null) {
+			setNewDescription(descr.innerHTML);
+		}
+
 		let newTask = {
 			id: uuidv4(),
 			parentId: parentId,
-			description: descr,
-			isCompleted: isCompleted
+			description: newDescription,
+			isCompleted: isCompleted,
+			color: newColor
 		}
 		onAddTask(newTask);
 		setOpen(false);
@@ -53,15 +61,20 @@ export const AddEditModal: React.FC<AddEditModalProps> = ({ id, parentId, descri
 		let currentTask = {
 			id: id,
 			parentId: parentId,
-			description: descr,
-			isCompleted: isCompleted
+			description: newDescription,
+			isCompleted: isCompleted,
+			color: newColor
 		}
 		onEditTask?.(currentTask);
 		setOpen(false);
 	}
 
 	const handleTextFieldChange = (e: { target: { value: string }; }) => {
-		setDescr(e.target.value);
+		setNewDescription(e.target.value);
+	}
+
+	const onChangeFontColor = (color: string) => {
+		setNewColor(color);
 	}
 
 	return (
@@ -79,7 +92,10 @@ export const AddEditModal: React.FC<AddEditModalProps> = ({ id, parentId, descri
 			>
 				<Box sx={modal}>
 					<Typography variant="h6">{!description.length ? 'Добавление задачи' : 'Редактирование задачи'}</Typography>
-					<TextField id="outlined-basic" variant="outlined" inputProps={{ style: { fontSize: 18, width: '450px' } }} defaultValue={!description.length ? "" : description} onChange={handleTextFieldChange} />
+					<Stack spacing={2} direction="row" alignItems={'center'} justifyContent={"space-around"}>
+						<TextField id="outlined-basic" variant="outlined" inputProps={{ style: { fontSize: 18, width: '400px' } }} defaultValue={!description.length ? "" : description} onChange={handleTextFieldChange} />
+						<ColorPicker onChangeFontColor={onChangeFontColor}></ColorPicker>
+					</Stack>
 					<Stack spacing={2} direction="row" justifyContent={"space-around"}>
 						<Button variant="contained" onClick={!description.length ? addTask : editTask}>Сохранить</Button>
 						<Button variant="outlined" onClick={handleClose}>Отмена</Button>

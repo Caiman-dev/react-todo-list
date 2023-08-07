@@ -22,7 +22,7 @@ interface TaskListProps {
 export const TaskList: React.FC<TaskListProps> = ({ taskList, onOpenTask, onAddTask, onEditTask, onDeleteTask }) => {
 	return (
 		<Box className="task-list">
-			<Typography variant="h4" sx={typography} >СПИСОК ЗАДАЧ</Typography>
+			<Typography variant="h4" sx={typography}>СПИСОК ЗАДАЧ</Typography>
 			<AddEditModal id={""} parentId={null} description={""} isCompleted={false} onAddTask={onAddTask}></AddEditModal>
 			<Box>
 				{taskList?.length ? taskList.map((_task) => {

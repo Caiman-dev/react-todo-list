@@ -3,4 +3,5 @@ export type ITaskModel = {
 	parentId: string | null;
 	description: string;
 	isCompleted: boolean;
+	color: string;
 };

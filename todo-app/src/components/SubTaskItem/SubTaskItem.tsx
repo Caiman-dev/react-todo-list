@@ -30,7 +30,8 @@ export const SubTaskItem: React.FC<TaskItemProps> = ({ subtask, onAddTask, onDel
 			id: subtask.id,
 			parentId: subtask.parentId,
 			description: subtask.description,
-			isCompleted: !checked
+			isCompleted: !checked,
+			color: subtask.color
 		}
 		onEditTask?.(currentTask);
 
@@ -73,7 +74,7 @@ export const SubTaskItem: React.FC<TaskItemProps> = ({ subtask, onAddTask, onDel
 			<Box className="subtask-item__inner">
 				<Stack direction="row" spacing={2} className="subtask-item__content" >
 					<Checkbox checked={checked} onChange={(e) => handleCheckBoxChanged(e)} />
-					<Typography variant='h6' component='h6'>{subtask.description}</Typography>
+					<Typography variant='h6' component='h6' sx={{ color: subtask.color }}>{subtask.description}</Typography>
 				</Stack>
 				<Stack direction="row" spacing={2} className="subtask-item__content" >
 					<Box id={'box' + subtask.id} className="subtask-item__buttons hidden">
