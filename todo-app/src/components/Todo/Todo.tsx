@@ -8,9 +8,9 @@ import ClipLoader from "react-spinners/ClipLoader";
 import "./Todo.css";
 
 export const Todo = () => {
-	const [tasks, setTasks] = React.useState<ITaskModel[] | null>();
-	const [taskList, setTaskList] = React.useState<ITaskModel[] | null>(null);
-	const [subTaskList, setSubTaskList] = React.useState<ITaskModel[] | null>(null);
+	const [tasks, setTasks] = React.useState<ITaskModel[]>();
+	const [taskList, setTaskList] = React.useState<ITaskModel[]>([]);
+	const [subTaskList, setSubTaskList] = React.useState<ITaskModel[]>([]);
 	const [parentId, setParentId] = React.useState<ITaskModel['id'] | null>(null);
 	const [parentDescription, setParentDescription] = React.useState<ITaskModel['description'] | null>(null);
 	const [loading, setLoading] = React.useState(true);
@@ -76,6 +76,14 @@ export const Todo = () => {
 		setTasks(newTasks);
 	};
 
+	const onChangeOrderTaskList = (reorderedList: ITaskModel[]) => {
+		setTaskList(reorderedList);
+	}
+	const onChangeOrderSubTaskList = (reorderedList: ITaskModel[]) => {
+		setSubTaskList(reorderedList);
+	}
+
+
 	return (<Box>
 		{loading ?
 			<ClipLoader
@@ -91,14 +99,16 @@ export const Todo = () => {
 					onOpenTask={onOpenTask}
 					onAddTask={onAddTask}
 					onEditTask={onEditTask}
-					onDeleteTask={onDeleteTask}></TaskList>
+					onDeleteTask={onDeleteTask}
+					onChangeOrderTaskList={onChangeOrderTaskList}></TaskList>
 				<SubTaskList
 					subtaskList={subTaskList}
 					taskParentId={parentId}
 					taskParentDescription={parentDescription}
 					onAddTask={onAddTask}
 					onEditTask={onEditTask}
-					onDeleteTask={onDeleteTask}></SubTaskList>
+					onDeleteTask={onDeleteTask}
+					onChangeOrderSubTaskList={onChangeOrderSubTaskList}></SubTaskList>
 			</Box >
 		}
 	</Box>

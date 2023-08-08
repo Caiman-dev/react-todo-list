@@ -10,3 +10,8 @@
 	border-bottom-left-radius: 10px 10px;
 	background-color: #859cfc;
 }
+
+ul {
+	list-style: none;
+	padding-inline-start: 0;
+}

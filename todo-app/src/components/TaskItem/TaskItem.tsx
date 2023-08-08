@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, Typography, IconButton, Paper } from '@mui/material';
 import { Delete as DeleteButton } from '@mui/icons-material';
-import "./TaskItem.css";
 import { AddEditModal } from "../AddEditModal/AddEditModal";
 import { ITaskModel } from "./type";
+import "./TaskItem.css";
 
 interface TaskItemProps {
 	task: ITaskModel;

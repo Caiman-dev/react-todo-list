@@ -6,7 +6,7 @@ export default axios.create({
 });
 
 export const getTasksFromServer = async () => {
-	const response = axios.get<ITaskModel[] | null>("http://localhost:3001/tasks");
+	const response = axios.get<ITaskModel[]>("http://localhost:3001/tasks");
 	return (await response).data;
 }
 
