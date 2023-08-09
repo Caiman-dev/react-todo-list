@@ -87,7 +87,7 @@ export const Todo = () => {
 	return (<Box>
 		{loading ?
 			<ClipLoader
-				color={'#34bcda'}
+				color={'#ffffff'}
 				loading={loading}
 				size={100}
 				aria-label="Loading Spinner"
